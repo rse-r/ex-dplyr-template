@@ -1,0 +1,111 @@
+---
+title: "Manipulación de datos con dplyr"
+author: "<tu nombre>"
+date: "2024-07-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Completá el espacio con los paquetes que vas a necesitar
+library(datos)  # paquete con datos
+library(____)   # para manipular datos
+```
+
+# Preparación
+
+Primero, cargo los datos del paquete datos.
+Corré esta línea de código si en algún momento modificaste la variable `vuelos` y querés volver a empezar.
+¡No borres ni modifiques este bloque!
+
+```{r}
+vuelos <- datos::vuelos
+```
+
+1.  Corré `?vuelos` en la consola para ver la ayuda de la base de datos `vuelos`. Fijate qué es cada columna de la tabla.
+
+Muestra de las primeras 6 filas de la tabla, para ver qué pinta tiene.
+
+```{r}
+head(vuelos)
+```
+
+# Ejercicios
+
+Usando la función filter().
+Encontrá todos los vuelos que:
+
+a.  Tuvieron un retraso de llegada de dos o más horas
+
+```{r}
+filter(vuelos, atraso_llegada >= ___)
+```
+
+Ayuda: si te da un error como este:
+
+    Error in filter(vuelos, atraso_llegada >= 120) : 
+      object 'atraso_llegada' not found
+
+asegurate de haber cargado el paquete dplyr en el primer bloque de código.
+
+1.  Encontrá todos los vuelos que:
+
+
+b.  Volaron a Houston (IAH oHOU)
+
+```{r}
+
+filter(vuelos, destino == ___ | destino == ___)
+
+```
+
+c.  Fueron operados por United, American o Delta
+
+```{r}
+
+```
+
+d.  Llegaron más de dos horas tarde, pero no salieron tarde
+
+```{r}
+
+```
+
+e.  Partieron entre la medianoche y las 6 a.m. (incluyente)
+
+(Ojo, en algunos casos la medianoche está escrita como 2400.)
+
+```{r}
+
+```
+
+2.  Calculá el tiempo de vuelo usando `horario_llegada - horario_salida` ¿Es igual a `tiempo_vuelo`? ¿Cuál es el problema?
+
+```{r}
+mutate(vuelos, tiempo_de_vuelo = _____)
+```
+
+3.  Calculá el tiempo de vuelo promedio para cada aeropuerto de origen.
+
+(Ayuda: Si hay que calcular algo **para cada *algo***, hay que siempre pensar en groupos.)
+
+```{r}
+
+vuelos %>% 
+  group_by(____) %>% 
+  summarise(tiempo_vuelo_promedio = mean(____, na.rm = TRUE))
+
+```
+
+¿Por qué hay que poner el argumento `na.rm = TRUE`?
+Fijate qué pasa si lo sacás y buscá en la ayuda de la función `mean` para ver qué hace.
+
+4.  Calculá el retraso medio para cada aerolínea.
+
+```{r}
+
+
+
+```
+

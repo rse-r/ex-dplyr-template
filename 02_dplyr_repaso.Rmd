@@ -1,0 +1,42 @@
+---
+title: "Repaso de dplyr"
+author: "tu nombre"
+date: "07/05/2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+```
+
+
+```{r}
+vuelos <- datos::vuelos
+```
+
+Usando arrange()
+
+1. ¿Cuál es el vuelo más retrasado?
+
+
+2. ¿Cuál es el vuelo que salió con mayor antelación a lo programado?
+
+
+3. Seleccioná las columnas vuelo, codigo_cola, distancia y tiempo_vuelo.
+
+
+4. ¿Qué pasa si seleccionas una columnas más de una vez con select()?
+
+
+5. ¿Cuál es el vuelo que voló más rápido? ¿A qué velocidad media voló?
+  Ayuda: podés calcular la velocidad del vuelo como distancia/tiempo_vuelo. Para saber en qué unidades resulta esa velocidad, revisá las unidades de distancia y tiempo_vuelo en ?vuelos.
+
+6. Calculá la velocidad media de cada aerolínea y ordená el resultado de mayor a menor. ¿Qué aerolínea es más rápida?
+
+
+7. ¿Cuál es la aerolinea con más vuelos?
+
+8. ¿Cuántos vuelos salieron salieron más tarde de lo previsto y cuántos más temperano de lo previsto para cada aerolínea? Podés usar la función `sign()` para ver si `atraso_salida` es positivo (salió más tarde), negativo (salió más temprano) o 0 (salió justo en horario). 
+
